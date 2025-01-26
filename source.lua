@@ -1,3 +1,11 @@
+if game:GetService("Players").LocalPlayer then
+    local notDone = Instance.new("Hint")
+    notDone.Parent = COREGUI
+    notDone.Text = "Infinite Yield Pro is currently in development."
+    wait(2)
+    notDone:Destroy()
+end
+
 if IY_LOADED and not _G.IY_DEBUG == true then
     -- error("Infinite Yield is already running!", 0)
     return
@@ -202,12 +210,13 @@ table.insert(shade2,Holder)
 Title.Name = "Title"
 Title.Parent = Holder
 Title.Active = true
-Title.BackgroundColor3 = Color3.fromRGB(36,36,37)
+Title.BackgroundColor3 = Color3.fromRGB(91,36,194)
 Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "Infinite Yield FE v" .. currentVersion
+Title.TextColor3 = Color3.fromRGB(67,27,87)
+Title.Text = "Infinite Yield Pro FE v" .. currentVersion
 
 do
 	local emoji = ({
@@ -12760,13 +12769,13 @@ IYMouse.Move:Connect(checkTT)
 
 task.spawn(function()
 	local success, latestVersionInfo = pcall(function() 
-		local versionJson = game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/version')
+		local versionJson = game:HttpGet('https://raw.githubusercontent.com/404PageN0tFound/infiniteyield-pro/master/version')
 		return HttpService:JSONDecode(versionJson)
 	end)
 
 	if success then
 		if currentVersion ~= latestVersionInfo.Version then
-			notify('Outdated','Get the new version at infyiff.github.io')
+			notify('Outdated','Get the new version at github.com/404PageN0tFound/infiniteyield-pro')
 		end
 
 		if latestVersionInfo.Announcement and latestVersionInfo.Announcement ~= '' then
